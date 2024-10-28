@@ -9,17 +9,17 @@ import javax.imageio.ImageIO
 
 object Add2 {
   def main(args: Array[String]): Unit = {
-    val inputDir = new File(args(0))
-    val outputDir = new File(args(1))
+    val inputDir = new File("D:\\Newfolder")
+    val outputDir = new File("C:\\Users\\xinqiu\\Downloads\\a") // new File(args(1))
     require(inputDir.exists())
     outputDir.mkdirs()
     val sdf = new SimpleDateFormat("yyyy/MM/dd")
-    val date = sdf.parse(args(2))
+    val date = sdf.parse("2024/10/28")
 
     for (file <- inputDir.listFiles().filter(_.isFile())) {
       val image = ImageIO.read(file)
       val graphics = image.createGraphics()
-      val font = new Font("ARIAL", Font.PLAIN, 30)
+      val font = new Font("ARIAL", Font.PLAIN, 35)
       graphics.setFont(font)
       graphics.setColor(Color.ORANGE)
       val currentDateandTime = sdf.format(date)
